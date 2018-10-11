@@ -106,6 +106,8 @@ span {
 
 #currentSession {
 	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
 }
 
 #seperator {
@@ -179,7 +181,7 @@ body {
 .logo {
     font-size: 4em;
     z-index: 100;
-    text-shadow: .04em .04em 0 #676868;
+    text-shadow: .07em .07em 0 #676868;
 }
 
 .logo:after {
@@ -193,6 +195,65 @@ body {
     -webkit-mask-image: url(//f.cl.ly/items/1t1C0W3y040g1J172r3h/mask.png);
 }
 
+.centered {
+	text-align: center;
+}
+
+#current {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#currentSession {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#percentage {
+	color: #FFFF66FF;
+}
+
+#startButton {
+	margin-top: 10px;
+  background:#CCCCCBFF;
+  color:#4C4C4BFF;
+  border:none;
+  position:relative;
+  height:60px;
+  font-size:1.6em;
+  padding:0 2em;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+}
+
+#startButton:hover {
+  background:#4C4C4BFF;
+  color:#CCCCCBFF;
+}
+
+#startButton :before, #startButton:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #CCCCCBFF;
+  transition:400ms ease all;
+}
+#startButton :after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+#startButton:hover:before, #startButton:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
 
 
 

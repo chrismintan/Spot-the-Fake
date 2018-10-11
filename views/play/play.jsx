@@ -6,14 +6,15 @@ class play extends React.Component {
   render() {
 
     return (
-      <Layout title="Login" cookies={this.props.cookies}>
+      <Layout title="Play!" cookies={this.props.cookies}>
 
         <div className='container-fluid'>
             <div className='row'>
                 <div className='col-sm-12'>
 
-                    <span className='logo'>Can You Spot The Fake?</span>
-
+                    <div className='centered'>
+                        <span className='logo'>Can You Spot The Fake?</span>
+                    </div>
 
                     <div className='container-fluid'>
                         <div className='row'>

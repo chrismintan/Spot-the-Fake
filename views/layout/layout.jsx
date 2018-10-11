@@ -47,12 +47,20 @@ class Login extends React.Component {
 class CurrentScore extends React.Component {
 
     render() {
+
+        let percentage = parseInt((parseInt(this.props.cookies.green) / (parseInt(this.props.cookies.green) + parseInt(this.props.cookies.red)))*100);
+
+        console.log(percentage);
+
         if (this.props.cookies.loggedIn) {
             return(
-                <div className='navbar=item' id='currentSession'>
-                    <span className={{style: 'green'}} id='correct'>{this.props.cookies.green}</span>
-                    <span id='seperator'>&nbsp;/&nbsp;</span>
-                    <span id='wrong'>{this.props.cookies.red}</span>
+                <div id='current'>
+                    <div className='navbar-item' id='currentSession'>
+                        <a id='correct'>{this.props.cookies.green}</a>
+                        <a id='seperator'>&nbsp;/&nbsp;</a>
+                        <a id='wrong'>{this.props.cookies.red}</a>
+                        <a id='percentage'>&nbsp;&nbsp;Correct Percentage:&nbsp;<strong>{percentage}%</strong></a>
+                    </div>
                 </div>
             )
         } else {
@@ -72,7 +80,8 @@ class Layout extends React.Component {
           <title>{this.props.title}</title>
           <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"/>
           <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
-            <link rel="stylesheet" href="/style.css" />
+          <link rel="stylesheet" href="/style.css" />
+          <link rel="shortcut icon" href="/onion.ico" />
         </head>
         <body>
         <nav className="navbar navbar-expand-md navbar-dark bg-dark">
