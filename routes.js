@@ -22,4 +22,23 @@ module.exports = (app, db) => {
     app.put('/users/plus/:id', users.plus1)
     app.put('/users/minus/:id', users.minus1)
 
+    // Updating Articles scores routes
+    app.put('/updatescores/correct', play.correct)
+    app.put('/updatescores/wrong', play.wrong)
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

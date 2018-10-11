@@ -1,12 +1,8 @@
-console.log('connected!')
+
 
 window.onload = function() {
 
     document.querySelector('#start').addEventListener('click', appendArticles);
-
-    document.getElementById('onion').addEventListener('click', appendOnion);
-
-    document.getElementById('notO').addEventListener('click', appendNotOnion);
 
 };
 
@@ -61,11 +57,22 @@ function titleCase(string) {
 }
 
 function appendArticles() {
+    if ( document.getElementById('startButton').textContent == 'Start!' ) {
+        document.getElementById('startButton').textContent = 'Next!';
+    };
+
+    hideLinks();
+    hideScores();
+
     deColorize();
     clearAll();
 
     appendOnion();
     appendNotOnion();
+
+    removeShrink();
+
+    startHover();
 
     // let rNum = Math.ceil(Math.random() * Math.ceil(2));
     // if ( rNum == 1 ) {
@@ -103,8 +110,6 @@ function appendOnion() {
             article1(image_url, titleCase(headline));
             onion = 1;
             putScores1(correct, wrong);
-            console.log('HERE:', correct)
-            document.getElementById('article1').addEventListener('click', minusOne, minus);
             document.getElementById('article1').addEventListener('click', minus);
             document.getElementById('article1').style.cursor = 'pointer';
 
@@ -112,7 +117,6 @@ function appendOnion() {
             article2(image_url, titleCase(headline));
             onion = 2;
             putScores2(correct, wrong);
-            document.getElementById('article2').addEventListener('click', minusOne, minus);
             document.getElementById('article2').addEventListener('click', minus);
             document.getElementById('article2').style.cursor = 'pointer';
         }
@@ -151,14 +155,12 @@ function appendNotOnion() {
             article1(image_url, titleCase(headline));
             putScores1(correct, wrong);
             notOnion = 1;
-            document.getElementById('article1').addEventListener('click', plusOne);
             document.getElementById('article1').addEventListener('click', plus);
             document.getElementById('article1').style.cursor = 'pointer';
         } else {
             article2(image_url, titleCase(headline));
             notOnion = 2;
             putScores2(correct, wrong);
-            document.getElementById('article2').addEventListener('click', plusOne);
             document.getElementById('article2').addEventListener('click', plus);
             document.getElementById('article2').style.cursor = 'pointer';
         }
@@ -171,9 +173,6 @@ function appendNotOnion() {
     request.open('GET', ajaxCall);
 
     request.send();
-
-    console.log('sent!', ajaxCall)
-
 }
 
 // Starting game functions
@@ -216,15 +215,15 @@ function deColorize() {
     document.getElementById('article1').style.background = "";
 }
 
-function plusOne() {
-    // + Score just for reference. Will eventually do AJAX post to server
-    let current = parseInt(document.getElementById('correct').textContent);
-    document.getElementById('correct').textContent = current + 1;
+// function plusOne() {
+//     // + Score just for reference. Will eventually do AJAX post to server
+//     let current = parseInt(document.getElementById('correct').textContent);
+//     document.getElementById('correct').textContent = current + 1;
 
-    // Color the onion article red and the real article green
-    colorize();
+//     // Color the onion article red and the real article green
+//     colorize();
 
-}
+// }
 
 // AJAX PUT to update database
 function plus() {
@@ -246,14 +245,26 @@ function plus() {
 
     colorize();
 
-    setLinks()
+    setLinks();
+
+    gotItRight();
+
+    showScores();
+
+    stopHover();
+
+    if ( onion == 1 ) {
+        document.getElementById('hover1').classList.add('shrink')
+    } else {
+        document.getElementById('hover2').classList.add('shrink')
+    }
 }
 
-function minusOne() {
-    // + Score just for reference. Will eventually do AJAX post to server
-    let current = parseInt(document.getElementById('wrong').textContent);
-    document.getElementById('wrong').textContent = current + 1;
-}
+// function minusOne() {
+//     // + Score just for reference. Will eventually do AJAX post to server
+//     let current = parseInt(document.getElementById('wrong').textContent);
+//     document.getElementById('wrong').textContent = current + 1;
+// }
 
 // AJAX PUT to update database
 function minus() {
@@ -275,7 +286,19 @@ function minus() {
 
     colorize();
 
-    setLinks()
+    setLinks();
+
+    gotItWrong();
+
+    showScores();
+
+    stopHover();
+
+    if ( onion == 1 ) {
+        document.getElementById('hover1').classList.add('shrink')
+    } else {
+        document.getElementById('hover2').classList.add('shrink')
+    }
 }
 
 
@@ -324,6 +347,45 @@ function setLinks() {
         document.getElementById('link2').href = onion_url;
     }
 }
+
+function hideLinks() {
+    document.getElementById('notify').style.display = 'none';
+}
+
+function gotItRight() {
+    let ajaxCall = `http://localhost:3000/updatescores/correct?onion_id=${onion_id}&&notOnion_id=${notOnion_id}`;
+
+    let request = new XMLHttpRequest();
+
+    request.open('PUT', ajaxCall);
+    request.send();
+
+}
+
+function gotItWrong() {
+    let ajaxCall = `http://localhost:3000/updatescores/wrong?onion_id=${onion_id}&&notOnion_id=${notOnion_id}`;
+
+    let request = new XMLHttpRequest();
+
+    request.open('PUT', ajaxCall);
+    request.send();
+}
+
+function stopHover() {
+    document.getElementById('hover1').classList.remove('hovering');
+    document.getElementById('hover2').classList.remove('hovering');
+}
+
+function startHover() {
+    document.getElementById('hover1').classList.add('hovering');
+    document.getElementById('hover2').classList.add('hovering');
+}
+
+function removeShrink() {
+    document.getElementById('hover1').classList.remove('shrink');
+    document.getElementById('hover2').classList.remove('shrink');
+}
+
 
 
 

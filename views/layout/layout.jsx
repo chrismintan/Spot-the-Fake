@@ -44,6 +44,23 @@ class Login extends React.Component {
   }
 }
 
+class CurrentScore extends React.Component {
+
+    render() {
+        if (this.props.cookies.loggedIn) {
+            return(
+                <div className='navbar=item' id='currentSession'>
+                    <span className={{style: 'green'}} id='correct'>{this.props.cookies.green}</span>
+                    <span id='seperator'>&nbsp;/&nbsp;</span>
+                    <span id='wrong'>{this.props.cookies.red}</span>
+                </div>
+            )
+        } else {
+            return <div></div>
+        }
+    }
+}
+
 class Layout extends React.Component {
 
   render () {
@@ -55,7 +72,7 @@ class Layout extends React.Component {
           <title>{this.props.title}</title>
           <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"/>
           <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
-          <link rel="stylesheet" href='style.css'/>
+            <link rel="stylesheet" href="/style.css" />
         </head>
         <body>
         <nav className="navbar navbar-expand-md navbar-dark bg-dark">
@@ -71,6 +88,7 @@ class Layout extends React.Component {
                 <a className="nav-item nav-link" href="/users/">Users</a>
 
                 <ProfileLink cookies={this.props.cookies} />
+                <CurrentScore cookies={this.props.cookies} />
               </div>
               <Login cookies={this.props.cookies}/>
             </div>

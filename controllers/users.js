@@ -48,6 +48,8 @@ module.exports = (db) => {
                             res.cookie('loggedIn', sha256(userid + SALT));
                             res.cookie('userid', userid);
                             res.cookie('username', req.body.name);
+                            res.cookie('green', '0');
+                            res.cookie('red', '0');
 
                             res.redirect('/');
                         } else {
@@ -71,12 +73,16 @@ module.exports = (db) => {
                 let userid = result.rows[0].id;
                 let username = result.rows[0].username;
                 let password = result.rows[0].password;
+                let green = result.rows[0].correct;
+                let red = result.rows[0].wrong;
 
                 if ( sha256(req.body.password) == password ) {
 
                     res.cookie('loggedIn', sha256(userid + SALT));
                     res.cookie('userid', userid);
                     res.cookie('username', username);
+                    res.cookie('green', green);
+                    res.cookie('red', red);
 
                     res.redirect('/');
 
@@ -99,6 +105,8 @@ module.exports = (db) => {
         res.clearCookie('loggedIn');
         res.clearCookie('userid');
         res.clearCookie('username');
+        res.clearCookie('green');
+        res.clearCookie('red');
 
         res.redirect('/');
     }
@@ -108,8 +116,10 @@ module.exports = (db) => {
             if ( err ) {
                 res.sendStatus(500);
             } else {
-                console.log('Worked!')
-                res.send('')
+                let current = parseInt(res.cookie.green);
+                let current1 = current+1;
+                res.cookie(green, current1);
+                res.send('');
             }
         })
     }
@@ -119,7 +129,9 @@ module.exports = (db) => {
             if ( err ) {
                 res.sendStatus(500);
             } else {
-                console.log('Minus 1')
+                let current = parseInt(res.cookie.red);
+                let current1 = current+1;
+                res.cookie(red, current1);
                 res.send('')
             }
         })
