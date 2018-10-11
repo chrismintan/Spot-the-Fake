@@ -19,10 +19,6 @@ module.exports = (app, db) => {
     app.get('/articles/onion/:id', play.onion)
     app.get('/articles/notonion/:id', play.notOnion)
 
-    app.get('/bannana', (req, res) => {
-        res.send('Hello')
-    })
-
     app.put('/users/plus/:id', users.plus1)
     app.put('/users/minus/:id', users.minus1)
 

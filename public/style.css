@@ -44,3 +44,42 @@ span {
 	vertical-align: middle;
 	display: table-cell;
 }
+
+.tick {
+	color: green;
+	float: right;
+}
+
+.cross {
+	color: red;
+	float: right;
+}
+
+#test {
+	color: red;
+}
+
+#test1 {
+	color: black;
+}
+
+#notify {
+	object-position: center;
+	text-align: center;
+	margin: 0;
+	font-size: 25px;
+	display: none;
+}
+
+#link1 {
+	margin: 10px 0;
+}
+
+#link2 {
+	margin: 10px 0;
+}
+
+
+
+
+
