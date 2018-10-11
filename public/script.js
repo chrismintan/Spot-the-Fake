@@ -110,14 +110,16 @@ function appendOnion() {
             article1(image_url, titleCase(headline));
             onion = 1;
             putScores1(correct, wrong);
-            document.getElementById('article1').addEventListener('click', minus);
+            document.getElementById('article1').addEventListener('click', plus);
+            document.getElementById('article1').addEventListener('click', colorizeGreen1);
             document.getElementById('article1').style.cursor = 'pointer';
 
         } else {
             article2(image_url, titleCase(headline));
             onion = 2;
             putScores2(correct, wrong);
-            document.getElementById('article2').addEventListener('click', minus);
+            document.getElementById('article2').addEventListener('click', plus);
+            document.getElementById('article2').addEventListener('click', colorizeGreen2);
             document.getElementById('article2').style.cursor = 'pointer';
         }
     }
@@ -155,14 +157,16 @@ function appendNotOnion() {
             article1(image_url, titleCase(headline));
             putScores1(correct, wrong);
             notOnion = 1;
-            document.getElementById('article1').addEventListener('click', plus);
+            document.getElementById('article1').addEventListener('click', minus);
             document.getElementById('article1').style.cursor = 'pointer';
+            document.getElementById('article1').addEventListener('click', colorizeRed1);
         } else {
             article2(image_url, titleCase(headline));
             notOnion = 2;
             putScores2(correct, wrong);
-            document.getElementById('article2').addEventListener('click', plus);
+            document.getElementById('article2').addEventListener('click', minus);
             document.getElementById('article2').style.cursor = 'pointer';
+            document.getElementById('article2').addEventListener('click', colorizeRed2);
         }
     }
 
@@ -200,14 +204,30 @@ function clearAll() {
     document.getElementById('headline2').textContent = "";
 }
 
-function colorize() {
-    if ( onion == 1 ) {
-        document.getElementById('article1').style.background = 'rgb(188, 62, 62, 0.6)';
-        document.getElementById('article2').style.background = 'rgb(125, 244, 66, 0.5)';
-    } else {
-        document.getElementById('article2').style.background = 'rgb(188, 62, 62, 0.6)';
-        document.getElementById('article1').style.background = 'rgb(125, 244, 66, 0.5)';
-    }
+// function colorize() {
+//     if ( onion == 1 ) {
+//         document.getElementById('article1').style.background = 'rgb(188, 62, 62, 0.6)';
+//         document.getElementById('article2').style.background = 'rgb(125, 244, 66, 0.5)';
+//     } else {
+//         document.getElementById('article2').style.background = 'rgb(188, 62, 62, 0.6)';
+//         document.getElementById('article1').style.background = 'rgb(125, 244, 66, 0.5)';
+//     }
+// }
+
+function colorizeGreen1() {
+    document.getElementById('article1').style.background = 'rgb(125, 244, 66, 0.5)';
+}
+
+function colorizeGreen2() {
+    document.getElementById('article2').style.background = 'rgb(125, 244, 66, 0.5)';
+}
+
+function colorizeRed1() {
+    document.getElementById('article1').style.background = 'rgb(188, 62, 62, 0.6)';
+}
+
+function colorizeRed2() {
+    document.getElementById('article2').style.background = 'rgb(188, 62, 62, 0.6)';
 }
 
 function deColorize() {
@@ -243,8 +263,6 @@ function plus() {
     request.open('PUT', ajaxCall);
     request.send();
 
-    colorize();
-
     setLinks();
 
     gotItRight();
@@ -253,11 +271,6 @@ function plus() {
 
     stopHover();
 
-    if ( onion == 1 ) {
-        document.getElementById('hover1').classList.add('shrink')
-    } else {
-        document.getElementById('hover2').classList.add('shrink')
-    }
 }
 
 // function minusOne() {
@@ -284,8 +297,6 @@ function minus() {
     request.open('PUT', ajaxCall);
     request.send();
 
-    colorize();
-
     setLinks();
 
     gotItWrong();
@@ -294,11 +305,6 @@ function minus() {
 
     stopHover();
 
-    if ( onion == 1 ) {
-        document.getElementById('hover1').classList.add('shrink')
-    } else {
-        document.getElementById('hover2').classList.add('shrink')
-    }
 }
 
 
