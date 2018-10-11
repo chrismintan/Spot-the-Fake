@@ -26,6 +26,9 @@ module.exports = (app, db) => {
     app.put('/updatescores/correct', play.correct)
     app.put('/updatescores/wrong', play.wrong)
 
+    app.get('/allarticles/onions', play.allOnions)
+    app.get('/allarticles/notonions', play.allNotOnions)
+
 }
 
 

@@ -11,9 +11,10 @@ class play extends React.Component {
         <div className='container-fluid'>
             <div className='row'>
                 <div className='col-sm-12'>
-                    <div className='sprite spot'>
-                        <img src='/spot.png'/>
-                    </div>
+
+                    <span className='logo'>Can You Spot The Fake?</span>
+
+
                     <div className='container-fluid'>
                         <div className='row'>
 
@@ -73,7 +74,8 @@ class play extends React.Component {
                 </div>
             </div>
         </div>
-        <script src='script.js'></script>
+        <script src='/background.js'></script>
+        <script src='/script.js'></script>
       </Layout>
         );
     }

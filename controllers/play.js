@@ -63,11 +63,33 @@ module.exports = (db) => {
         })
     }
 
+    const allOnions = (req, res) => {
+        db.play.getAllOnions(req.cookies, (err, result) => {
+            if ( err ) {
+                res.sendStatus(500);
+            } else {
+                res.json(result);
+            }
+        })
+    }
+
+    const allNotOnions = (req, res) => {
+        db.play.getAllNotOnions(req.cookies, (err, result) => {
+            if ( err ) {
+                res.sendStatus(500);
+            } else {
+                res.json(result);
+            }
+        })
+    }
+
     return {
         index,
         onion,
         notOnion,
         correct,
-        wrong
+        wrong,
+        allOnions,
+        allNotOnions
     }
 }

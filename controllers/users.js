@@ -137,17 +137,17 @@ module.exports = (db) => {
         })
     }
 
-    // const profile = (req, res) => {
-    //     db.users.getById(req.params, (err, result) => {
-    //         if ( err ) {
-    //             res.sendStatus(500);
-    //         } else if ( result.rowCount == 0 ) {
-    //             res.send('User not found!');
-    //         } else {
-    //             res.render('users/profile', {users: result.rows[0], cookies: req.cookies});
-    //         }
-    //     })
-    // }
+    const profile = (req, res) => {
+        db.users.getById(req.params, (err, result) => {
+            if ( err ) {
+                res.sendStatus(500);
+            } else if ( result.rowCount == 0 ) {
+                res.send('User not found!');
+            } else {
+                res.render('users/profile', {users: result.rows[0], cookies: req.cookies});
+            }
+        })
+    }
 
     return {
         index,

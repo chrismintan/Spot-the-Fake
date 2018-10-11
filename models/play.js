@@ -54,12 +54,28 @@ module.exports = (pool) => {
         })
     }
 
+    const getAllOnions = (play, callback) => {
+        let text = `SELECT image_url FROM onions`;
+        pool.query(text, (err, result) => {
+            callback(err, result);
+        })
+    }
+
+    const getAllNotOnions = (play, callback) => {
+        let text = `SELECT image_url FROM notonions`;
+        pool.query(text, (err, result) => {
+            callback(err, result);
+        })
+    }
+
     return {
         onionById,
         notOnionById,
         plusOnion,
         minusOnion,
         plusNotOnion,
-        minusNotOnion
+        minusNotOnion,
+        getAllOnions,
+        getAllNotOnions
     }
 }

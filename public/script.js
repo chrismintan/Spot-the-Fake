@@ -73,17 +73,6 @@ function appendArticles() {
     removeShrink();
 
     startHover();
-
-    // let rNum = Math.ceil(Math.random() * Math.ceil(2));
-    // if ( rNum == 1 ) {
-    //     console.log('HERE')
-    //     appendOnion();
-    //     appendNotOnion();
-    // } else {
-    //     console.log('HERE')
-    //     appendNotOnion();
-    //     appendOnion();
-    // }
 }
 
 // Function to append a random Onion article to the page
@@ -215,24 +204,24 @@ function clearAll() {
 // }
 
 function colorizeGreen1() {
-    document.getElementById('article1').style.background = 'rgb(125, 244, 66, 0.5)';
+    document.getElementById('article1').style.background = 'rgb(125, 244, 66)';
 }
 
 function colorizeGreen2() {
-    document.getElementById('article2').style.background = 'rgb(125, 244, 66, 0.5)';
+    document.getElementById('article2').style.background = 'rgb(125, 244, 66)';
 }
 
 function colorizeRed1() {
-    document.getElementById('article1').style.background = 'rgb(188, 62, 62, 0.6)';
+    document.getElementById('article1').style.background = 'rgb(188, 62, 62)';
 }
 
 function colorizeRed2() {
-    document.getElementById('article2').style.background = 'rgb(188, 62, 62, 0.6)';
+    document.getElementById('article2').style.background = 'rgb(188, 62, 62)';
 }
 
 function deColorize() {
-    document.getElementById('article2').style.background = "";
-    document.getElementById('article1').style.background = "";
+    document.getElementById('article2').style.background = "white";
+    document.getElementById('article1').style.background = "white";
 }
 
 // function plusOne() {
