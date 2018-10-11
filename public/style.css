@@ -1,0 +1,46 @@
+#top {
+	background: orange;
+}
+
+#bot {
+	background: green;
+}
+
+#article1 {
+	display: none;
+	border: 1px solid black;
+	margin: 10px 0;
+	cursor: pointer;
+	/*background-color: rgb(125, 244, 66, 0.5);*/
+}
+
+#article2 {
+	display: none;
+	border: 1px solid black;
+	margin: 10px 0;
+	cursor: pointer;
+	/*background-color: rgb(188, 62, 62, 0.6);*/
+}
+
+#img1 {
+	height: 78px;
+	vertical-align: middle;
+	display: table-cell;
+	border: 1px solid #999998FF;
+	border-radius: 4px;
+	margin: 5px;
+}
+
+#img2 {
+	height: 78px;
+	vertical-align: middle;
+	display: table-cell;
+	border: 1px solid #999998FF;
+	border-radius: 4px;
+	margin: 5px;
+}
+
+span {
+	vertical-align: middle;
+	display: table-cell;
+}
