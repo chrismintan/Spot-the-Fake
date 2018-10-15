@@ -9,7 +9,7 @@ window.onload = function() {
 
 
 
-function getFakeArticles() {
+function getRealArticles() {
 
     let ajaxCall = `https://www.reddit.com/r/nottheonion/top/.json?t=month&limit=100`;
 
@@ -32,7 +32,7 @@ function getFakeArticles() {
 
             let guess_wrong = 0;
 
-            let type = 'Fake!'
+            let type = 'Real!'
 
             let ajaxPost = `/postnewfake?headline=${headline}&&image_url=${image_url}&&article_url=${article_url}&&reddit_url=${reddit_url}&&guess_right=${guess_right}&&guess_wrong=${guess_wrong}&&type=${type}`;
 
@@ -54,7 +54,7 @@ function getFakeArticles() {
 
 }
 
-function getRealArticles() {
+function getFakeArticles() {
 
     let ajaxCall = `https://www.reddit.com/r/TheOnion/top/.json?t=month&limit=100`;
 
@@ -77,7 +77,7 @@ function getRealArticles() {
 
             let guess_wrong = 0;
 
-            let type = 'Real!'
+            let type = 'Fake!'
 
             let ajaxPost = `/postnewreal?headline=${headline}&&image_url=${image_url}&&article_url=${article_url}&&reddit_url=${reddit_url}&&guess_right=${guess_right}&&guess_wrong=${guess_wrong}&&type=${type}`;
 
