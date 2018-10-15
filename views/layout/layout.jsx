@@ -50,8 +50,6 @@ class CurrentScore extends React.Component {
 
         let percentage = parseInt((parseInt(this.props.cookies.green) / (parseInt(this.props.cookies.green) + parseInt(this.props.cookies.red)))*100);
 
-        console.log(percentage);
-
         if (this.props.cookies.loggedIn) {
             return(
                 <div id='current'>

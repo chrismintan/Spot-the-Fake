@@ -1,5 +1,11 @@
 
+window.onload = function() {
 
+    document.getElementById('seedFake').addEventListener('click', getFakeArticles);
+
+    document.getElementById('seedReal').addEventListener('click', getRealArticles);
+
+}
 
 
 
@@ -10,34 +16,89 @@ function getFakeArticles() {
     let responseHandler = function() {
         responseObj = JSON.parse(this.responseText);
 
-        let headline = responseObj.data.children[i].data.title;
+        console.log(responseObj.data.children)
 
-        let image_url = responseObj.data.children[i].data.thumbnail;
+        for ( let i = 0; i < responseObj.data.children.length; i++ ) {
 
-        let article_url = responseObj.data.children[i].data.url;
+            let headline = responseObj.data.children[i].data.title;
 
-        let reddit_url = 'http://www.reddit.com/' + responseObj.data.children[i].data.permalink;
+            let image_url = responseObj.data.children[i].data.thumbnail;
 
-        let guess_right = 0;
+            let article_url = responseObj.data.children[i].data.url;
 
-        let guess_wrong = 0;
+            let reddit_url = 'http://www.reddit.com/' + responseObj.data.children[i].data.permalink;
 
-        let type = 'Real!'
+            let guess_right = 0;
 
-        let ajaxPost = `/test1?headline=${headline}&&image_url=${image_url}&&article_url=${article_url}&&reddit_url=${reddit_url}&&guess_right=${guess_right}&&guess_wrong=${guess_wrong}&&type=${type}`;
+            let guess_wrong = 0;
+
+            let type = 'Fake!'
+
+            let ajaxPost = `/postnewfake?headline=${headline}&&image_url=${image_url}&&article_url=${article_url}&&reddit_url=${reddit_url}&&guess_right=${guess_right}&&guess_wrong=${guess_wrong}&&type=${type}`;
+
+            var request = new XMLHttpRequest();
+
+            request.open('POST', ajaxPost);
+
+            request.send();
+        }
     }
 
     let request = new XMLHttpRequest();
 
     request.addEventListener('load', responseHandler);
 
-    request.open('POST', ajaxCall);
+    request.open('GET', ajaxCall);
 
     request.send();
 
 }
 
+function getRealArticles() {
 
+    let ajaxCall = `https://www.reddit.com/r/TheOnion/top/.json?t=month&limit=100`;
+
+    let responseHandler = function() {
+        responseObj = JSON.parse(this.responseText);
+
+        console.log(responseObj)
+
+        for ( let i = 0; i < responseObj.data.children.length; i++ ) {
+
+            let headline = responseObj.data.children[i].data.title;
+
+            let image_url = responseObj.data.children[i].data.thumbnail;
+
+            let article_url = responseObj.data.children[i].data.url;
+
+            let reddit_url = 'http://www.reddit.com/' + responseObj.data.children[i].data.permalink;
+
+            let guess_right = 0;
+
+            let guess_wrong = 0;
+
+            let type = 'Real!'
+
+            let ajaxPost = `/postnewreal?headline=${headline}&&image_url=${image_url}&&article_url=${article_url}&&reddit_url=${reddit_url}&&guess_right=${guess_right}&&guess_wrong=${guess_wrong}&&type=${type}`;
+
+            var request = new XMLHttpRequest();
+
+            request.open('POST', ajaxPost);
+
+            request.send();
+
+        }
+    }
+
+    let request = new XMLHttpRequest();
+
+    request.addEventListener('load', responseHandler);
+
+    request.open('GET', ajaxCall);
+
+    request.send();
+
+}
 
 
 

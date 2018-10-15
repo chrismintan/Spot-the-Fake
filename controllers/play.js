@@ -154,6 +154,8 @@ module.exports = (db) => {
         allArticles,
         fakeArticles,
         realArticles,
-        topArticles
+        topArticles,
+        insertReal,
+        insertFake
     }
 }

@@ -10,8 +10,6 @@ module.exports = (pool) => {
     }
 
     const onionById = (play, callback) => {
-
-        console.log(play.id)
         let text = `SELECT * FROM onions WHERE id = '${play.id}'`;
         pool.query(text, (err, result) => {
             callback(err, result);
@@ -95,7 +93,12 @@ module.exports = (pool) => {
     }
 
     const insertReal = (play, callback) => {
-        let text = `INSERT INTO notonions (headline, image_url, article_url, reddit_url, guess_right, guess_wrong, type) SELECT '${play.headline}', '${play.image_url}', '${play.article_url}', '${play.reddit_url}', '${play.guess_right}', '${play.guess_wrong}', '${play.type}' WHERE NOT EXISTS ( SELECT 1 FROM notonions WHERE headline = '${headline}'`;
+        // let text = `INSERT INTO notonions (headline, image_url, article_url, reddit_url, guess_right, guess_wrong, type) SELECT '${play.headline}', '${play.image_url}', '${play.article_url}', '${play.reddit_url}', '${play.guess_right}', '${play.guess_wrong}', '${play.type}' WHERE NOT EXISTS ( SELECT 1 FROM notonions WHERE headline = '${play.headline}')`;
+
+        let text = `INSERT INTO onions (headline, image_url, article_url, reddit_url, guess_right, guess_wrong, type) VALUES ($1, $2, $3, $4, $5, $6, $7)`;
+
+        let values = [play.headline, play.image_url, play.article_url, play.reddit_url, play.guess_right, play.guess_wrong, play.type];
+
 
         pool.query(text, values, (err, result) => {
             callback(err, result);
@@ -103,9 +106,14 @@ module.exports = (pool) => {
     }
 
     const insertFake = (play, callback) => {
-        let text = `INSERT INTO onions (headline, image_url, article_url, reddit_url, guess_right, guess_wrong, type) SELECT '${play.headline}', '${play.image_url}', '${play.article_url}', '${play.reddit_url}', '${play.guess_right}', '${play.guess_wrong}', '${play.type}' WHERE NOT EXISTS ( SELECT 1 FROM onions WHERE headline = '${headline}'`;
+        // let text = `INSERT INTO onions (headline, image_url, article_url, reddit_url, guess_right, guess_wrong, type) SELECT '${play.headline}', '${play.image_url}', '${play.article_url}', '${play.reddit_url}', '${play.guess_right}', '${play.guess_wrong}', '${play.type}' WHERE NOT EXISTS ( SELECT 1 FROM onions WHERE headline = '${play.headline}')`;
 
-        pool.query(text, (err, result) => {
+        let text = `INSERT INTO notonions (headline, image_url, article_url, reddit_url, guess_right, guess_wrong, type) VALUES ($1, $2, $3, $4, $5, $6, $7)`;
+
+        let values = [play.headline, play.image_url, play.article_url, play.reddit_url, play.guess_right, play.guess_wrong, play.type];
+
+        pool.query(text, values, (err, result) => {
+            console.log(err)
             callback(err, result);
         })
     }
