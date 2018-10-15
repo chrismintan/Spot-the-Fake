@@ -43,6 +43,8 @@ module.exports = (db) => {
                         if ( result.rowCount >= 1 ) {
                             console.log('User created!');
 
+                            console.log(result.rows)
+
                             let userid = result.rows[0].id;
 
                             res.cookie('loggedIn', sha256(userid + SALT));

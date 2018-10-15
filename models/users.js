@@ -2,7 +2,7 @@ const sha256 = require('js-sha256');
 
 module.exports = (pool) => {
     const create = (users, callback) => {
-        let text = 'INSERT INTO users (username, password, correct, wrong) VALUES ($1, $2, $3, $4)'
+        let text = 'INSERT INTO users (username, password, correct, wrong) VALUES ($1, $2, $3, $4) RETURNING *'
 
         let values = [users.name, sha256(users.password), 0, 0];
 
