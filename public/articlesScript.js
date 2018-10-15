@@ -41,17 +41,17 @@ function sortBy() {
 
     // Making the conditionals
     if (sort == 'top') {
-        let ajaxCall = `http://localhost:3000/toparticles`;
+        let ajaxCall = `/toparticles`;
         loadArticles(ajaxCall);
     }
 
     if (sort == 'real') {
-        let ajaxCall = `http://localhost:3000/realarticles`;
+        let ajaxCall = `/realarticles`;
         loadArticles(ajaxCall);
     }
 
     if (sort == 'fake') {
-        let ajaxCall = `http://localhost:3000/fakearticles`;
+        let ajaxCall = `/fakearticles`;
         loadArticles(ajaxCall);
     }
 

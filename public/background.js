@@ -4,12 +4,12 @@ function background() {
 
     backgroundText = `<img class='side' src='`;
 
-    let ajaxCall1 = `http://localhost:3000/allarticles/onions`;
+    let ajaxCall1 = `/allarticles/onions`;
 
     let responseHandler1 = function() {
         let responseObj1 = JSON.parse(this.responseText);
 
-        let ajaxCall2 = `http://localhost:3000/allarticles/notonions`;
+        let ajaxCall2 = `/allarticles/notonions`;
 
         let responseHandler2 = function() {
             let responseObj2 = JSON.parse(this.responseText);

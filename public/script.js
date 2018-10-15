@@ -80,7 +80,7 @@ function appendOnion() {
     hideScores();
     let rNum = Math.ceil(Math.random() * Math.ceil(100));
 
-    let ajaxCall = `http://localhost:3000/articles/onion/${rNum}`;
+    let ajaxCall = `/articles/onion/${rNum}`;
 
     let responseHandler = function() {
 
@@ -127,7 +127,7 @@ function appendNotOnion() {
     hideScores();
     let rNum = Math.ceil(Math.random() * Math.ceil(100));
 
-    let ajaxCall = `http://localhost:3000/articles/notonion/${rNum}`;
+    let ajaxCall = `/articles/notonion/${rNum}`;
 
     let responseHandler = function() {
         let responseObj = JSON.parse(this.responseText);
@@ -259,7 +259,7 @@ function plus() {
     let new_element2 = old_element2.cloneNode(true);
     old_element2.parentNode.replaceChild(new_element2, old_element2);
     let cookies = parse(document.cookie);
-    let ajaxCall = `http://localhost:3000/users/plus/${cookies.userid}`;
+    let ajaxCall = `/users/plus/${cookies.userid}`;
 
     let request = new XMLHttpRequest();
 
@@ -295,7 +295,7 @@ function minus() {
     let new_element2 = old_element2.cloneNode(true);
     old_element2.parentNode.replaceChild(new_element2, old_element2);
     let cookies = parse(document.cookie);
-    let ajaxCall = `http://localhost:3000/users/minus/${cookies.userid}`;
+    let ajaxCall = `/users/minus/${cookies.userid}`;
 
     let request = new XMLHttpRequest();
 
@@ -370,7 +370,7 @@ function hideLinks() {
 }
 
 function gotItRight() {
-    let ajaxCall = `http://localhost:3000/updatescores/correct?onion_id=${onion_id}&&notOnion_id=${notOnion_id}`;
+    let ajaxCall = `/updatescores/correct?onion_id=${onion_id}&&notOnion_id=${notOnion_id}`;
 
     let request = new XMLHttpRequest();
 
@@ -380,7 +380,7 @@ function gotItRight() {
 }
 
 function gotItWrong() {
-    let ajaxCall = `http://localhost:3000/updatescores/wrong?onion_id=${onion_id}&&notOnion_id=${notOnion_id}`;
+    let ajaxCall = `/updatescores/wrong?onion_id=${onion_id}&&notOnion_id=${notOnion_id}`;
 
     let request = new XMLHttpRequest();
 
