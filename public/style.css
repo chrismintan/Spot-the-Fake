@@ -417,6 +417,9 @@ html, body {
 	margin-bottom: 15px;
 }
 
+.username {
+	white-space: nowrap;
+}
 
 
 

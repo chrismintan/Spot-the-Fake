@@ -34,7 +34,12 @@ function getRealArticles() {
 
             let type = 'Real!'
 
-            let ajaxPost = `/postnewfake?headline=${headline}&&image_url=${image_url}&&article_url=${article_url}&&reddit_url=${reddit_url}&&guess_right=${guess_right}&&guess_wrong=${guess_wrong}&&type=${type}`;
+            let params = `headline=${headline}&&image_url=${image_url}&&article_url=${article_url}&&reddit_url=${reddit_url}&&guess_right=${guess_right}&&guess_wrong=${guess_wrong}&&type=${type}`;
+
+            // % signs have to be passed on as %25 in a query
+            let encoded = params.split('%').join('%25');
+
+            let ajaxPost = `/postnewreal?${encoded}`;
 
             var request = new XMLHttpRequest();
 
@@ -79,7 +84,13 @@ function getFakeArticles() {
 
             let type = 'Fake!'
 
-            let ajaxPost = `/postnewreal?headline=${headline}&&image_url=${image_url}&&article_url=${article_url}&&reddit_url=${reddit_url}&&guess_right=${guess_right}&&guess_wrong=${guess_wrong}&&type=${type}`;
+            let params = `headline=${headline}&&image_url=${image_url}&&article_url=${article_url}&&reddit_url=${reddit_url}&&guess_right=${guess_right}&&guess_wrong=${guess_wrong}&&type=${type}`;
+
+
+            // % signs have to be passed on as %25 in a query
+            let encoded = params.split('%').join('%25');
+
+            let ajaxPost = `/postnewreal?${encoded}`;
 
             var request = new XMLHttpRequest();
 
