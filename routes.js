@@ -41,13 +41,19 @@ module.exports = (app, db) => {
     app.post('/postnewreal', play.insertReal)
     app.post('/postnewfake', play.insertFake)
 
+    // Hidden path to populate tables
     app.get('/tbecm', (req, res) => {
         res.render('users/hidden')
     })
 
+    // Homepage with short writeup on the game
+    app.get('/home', users.home)
+
     app.get('*', (req, res) => {
         res.redirect('/play')
     })
+
+
 
 }
 

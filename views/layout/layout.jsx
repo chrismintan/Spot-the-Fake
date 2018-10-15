@@ -76,16 +76,18 @@ class Layout extends React.Component {
       <html>
         <head>
           <title>{this.props.title}</title>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
           <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"/>
           <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
           <link rel="stylesheet" href="/style.css" />
           <link rel="shortcut icon" href="/onion.ico" />
           <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
         </head>
         <body>
         <nav className="navbar navbar-expand-md navbar-dark bg-dark">
           <div className="container">
-            <a className="navbar-brand mb-0 h1" href="/">Spot the Fake!</a>
+            <a className="navbar-brand mb-0 h1" href="/home">Spot the Fake!</a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>
@@ -109,9 +111,39 @@ class Layout extends React.Component {
             </main>
           </div>
         </body>
+
+        <footer className='footer'>
+            <div className='container-fluid'>
+                <div className='row'>
+
+                    <div className='col-sm-6'>
+
+                        <h1 id='copyright'>&nbsp;©</h1><span id='copyright2'>hristopher&nbsp;Tan</span>
+                    </div>
+
+                    <div className='col-sm-6'>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+<div className='social'>
+    <a href="#" class="fa fa-facebook"></a>
+    <a href="#" class="fa fa-github"></a>
+    <a href="#" class="fa fa-linkedin"></a>
+    <a href="#" class="fa fa-skype"></a>
+</div>
+
+
+
+                    </div>
+
+                </div>
+            </div>
+        </footer>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" />
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" />
+
       </html>
     )
   }

@@ -90,7 +90,7 @@ function getFakeArticles() {
             // % signs have to be passed on as %25 in a query
             let encoded = params.split('%').join('%25');
 
-            let ajaxPost = `/postnewreal?${encoded}`;
+            let ajaxPost = `/postnewfake?${encoded}`;
 
             var request = new XMLHttpRequest();
 

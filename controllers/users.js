@@ -151,6 +151,10 @@ module.exports = (db) => {
         })
     }
 
+    const home = (req, res) => {
+        res.render('users/home', {cookies: req.cookies})
+    }
+
     return {
         index,
         newForm,
@@ -162,7 +166,8 @@ module.exports = (db) => {
         logout,
         // profile,
         plus1,
-        minus1
+        minus1,
+        home
     }
 }
 
