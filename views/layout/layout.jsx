@@ -9,7 +9,7 @@ class ProfileLink extends React.Component{
     let cookies = this.props.cookies;
 
     if (cookies.loggedIn === sha256(cookies.userid + SALT)) {
-      return <a className="nav-item nav-link" href={"/users/" + cookies.userid}>Profile:&nbsp;({cookies.username})</a>
+      return <span className="nav-item nav-link" >({cookies.username})</span>
     } else {
       return <span />
     }
