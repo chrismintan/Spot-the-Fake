@@ -133,8 +133,8 @@ module.exports = (db) => {
         })
     }
 
-    const insertReal = (req, res) => {
-        db.play.insertReal(req.query, (err, result) => {
+    const insertFake = (req, res) => {
+        db.play.insertFake(req.query, (err, result) => {
             if ( err ) {
                 res.sendStatus(500);
             } else {

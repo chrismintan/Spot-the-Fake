@@ -24,7 +24,7 @@ function getFakeArticles() {
 
         let type = 'Real!'
 
-        let ajaxPost = `http://localhost:3000/test1?headline=${headline}&&image_url=${image_url}&&article_url=${article_url}&&reddit_url=${reddit_url}&&guess_right=${guess_right}&&guess_wrong=${guess_wrong}&&type=${type}`;
+        let ajaxPost = `/test1?headline=${headline}&&image_url=${image_url}&&article_url=${article_url}&&reddit_url=${reddit_url}&&guess_right=${guess_right}&&guess_wrong=${guess_wrong}&&type=${type}`;
     }
 
     let request = new XMLHttpRequest();

@@ -38,8 +38,8 @@ module.exports = (app, db) => {
     app.get('/toparticles', play.topArticles)
 
     // Posting new articles into database
-    app.post('/postnewreal', play.insertReal)
-    app.post('/postnewfake', play.insertFake)
+    // app.post('/postnewreal', play.insertReal)
+    // app.post('/postnewfake', play.insertFake)
 
 }
 
