@@ -116,22 +116,19 @@ class Layout extends React.Component {
             <div className='container-fluid'>
                 <div className='row'>
 
-                    <div className='col-sm-6'>
+                    <div className='centered col-sm-12' id='social1'>
 
-                        <h1 id='copyright'>&nbsp;©</h1><span id='copyright2'>hristopher&nbsp;Tan</span>
-                    </div>
-
-                    <div className='col-sm-6'>
+                        <div id='copyright'><strong id='copy'>©</strong>hristopher&nbsp;Tan&nbsp;</div>
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+                        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
-<div className='social'>
-    <a href="#" class="fa fa-facebook"></a>
-    <a href="#" class="fa fa-github"></a>
-    <a href="#" class="fa fa-linkedin"></a>
-    <a href="#" class="fa fa-skype"></a>
-</div>
+                        <div id='social'>
+                            <a href="#" className="fa fa-facebook"></a>&nbsp;
+                            <a href="#" className="fa fa-github"></a>&nbsp;
+                            <a href="#" className="fa fa-linkedin"></a>&nbsp;
+                            <a href="#" className="fa fa-skype"></a>&nbsp;
+                        </div>
 
 
 
