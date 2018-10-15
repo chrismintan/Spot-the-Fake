@@ -45,6 +45,10 @@ module.exports = (app, db) => {
         res.render('users/hidden')
     })
 
+    app.get('*', (req, res) => {
+        res.redirect('/play')
+    })
+
 }
 
 
