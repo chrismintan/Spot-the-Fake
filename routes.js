@@ -29,6 +29,18 @@ module.exports = (app, db) => {
     app.get('/allarticles/onions', play.allOnions)
     app.get('/allarticles/notonions', play.allNotOnions)
 
+    // Render article page
+    app.get('/articles', play.allArticles)
+
+    // Dropdown list JSON rendering
+    app.get('/fakearticles', play.fakeArticles)
+    app.get('/realarticles', play.realArticles)
+    app.get('/toparticles', play.topArticles)
+
+    // Posting new articles into database
+    app.post('/postnewreal', play.insertReal)
+    app.post('/postnewfake', play.insertFake)
+
 }
 
 

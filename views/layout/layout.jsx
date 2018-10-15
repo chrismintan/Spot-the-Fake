@@ -2,14 +2,14 @@ const React = require('react');
 const sha256 = require('js-sha256');
 const SALT = 'tbecm';
 
-class ProfileLink extends React.Component {
+class ProfileLink extends React.Component{
 
   render () {
 
     let cookies = this.props.cookies;
 
     if (cookies.loggedIn === sha256(cookies.userid + SALT)) {
-      return <a className="nav-item nav-link" href={"/users/" + cookies.userid}>Profile ({cookies.username})</a>
+      return <a className="nav-item nav-link" href={"/users/" + cookies.userid}>Profile:&nbsp;({cookies.username})</a>
     } else {
       return <span />
     }
@@ -59,7 +59,7 @@ class CurrentScore extends React.Component {
                         <a id='correct'>{this.props.cookies.green}</a>
                         <a id='seperator'>&nbsp;/&nbsp;</a>
                         <a id='wrong'>{this.props.cookies.red}</a>
-                        <a id='percentage'>&nbsp;&nbsp;Correct Percentage:&nbsp;<strong>{percentage}%</strong></a>
+                        <a id='percentage'>&nbsp;&nbsp;Correct:&nbsp;Percentage:&nbsp;<strong>{percentage}%</strong></a>
                     </div>
                 </div>
             )
@@ -82,6 +82,7 @@ class Layout extends React.Component {
           <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
           <link rel="stylesheet" href="/style.css" />
           <link rel="shortcut icon" href="/onion.ico" />
+          <meta name="viewport" content="width=device-width, initial-scale=1"/>
         </head>
         <body>
         <nav className="navbar navbar-expand-md navbar-dark bg-dark">
@@ -92,12 +93,12 @@ class Layout extends React.Component {
             </button>
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <div className="navbar-nav mr-auto">
-                <a className='nav-item nav-link' href='/play'>Play!</a>
-                <a className='nav-item nav-link' href='/news'>Top Stories</a>
-                <a className="nav-item nav-link" href="/users/">Users</a>
+                        <a className='nav-item nav-link' href='/play'>Play!</a>
+                        <a className='nav-item nav-link' href='/articles'>Top&nbsp;Stories</a>
+                        <a className="nav-item nav-link" href="/users/">Users</a>
 
-                <ProfileLink cookies={this.props.cookies} />
-                <CurrentScore cookies={this.props.cookies} />
+                        <ProfileLink cookies={this.props.cookies} />
+                        <CurrentScore cookies={this.props.cookies} />
               </div>
               <Login cookies={this.props.cookies}/>
             </div>

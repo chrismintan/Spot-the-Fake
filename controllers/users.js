@@ -116,9 +116,9 @@ module.exports = (db) => {
             if ( err ) {
                 res.sendStatus(500);
             } else {
-                let current = parseInt(res.cookie.green);
+                let current = parseInt(req.cookies.green);
                 let current1 = current+1;
-                res.cookie(green, current1);
+                res.cookie('green', current1);
                 res.send('');
             }
         })
@@ -129,9 +129,9 @@ module.exports = (db) => {
             if ( err ) {
                 res.sendStatus(500);
             } else {
-                let current = parseInt(res.cookie.red);
+                let current = parseInt(req.cookies.red);
                 let current1 = current+1;
-                res.cookie(red, current1);
+                res.cookie('red', current1);
                 res.send('')
             }
         })

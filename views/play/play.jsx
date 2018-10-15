@@ -12,15 +12,20 @@ class play extends React.Component {
             <div className='row'>
                 <div className='col-sm-12'>
 
-                    <div className='centered'>
+                    <div className='centered container-fluid col-sm-12'>
                         <span className='logo'>Can You Spot The Fake?</span>
                     </div>
 
+
+
                     <div className='container-fluid'>
+
                         <div className='row'>
 
                             <div className='hovering col-sm-12' id='hover1'>
+                                <div id='header1'></div>
                                 <div className = 'col-sm-12' id='article1'>
+
                                     <span>
                                         <img id='img1' />
                                     </span>
@@ -53,6 +58,8 @@ class play extends React.Component {
                         <div className='row'>
 
                             <div className='hovering col-sm-12' id='hover2'>
+
+                                <div id='header2'></div>
                                 <div className='col-sm-12' id='article2'>
                                     <span>
                                         <img id='img2'/>

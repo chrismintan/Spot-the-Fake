@@ -68,6 +68,48 @@ module.exports = (pool) => {
         })
     }
 
+    const allArticles = (play, callback) => {
+        let text = `SELECT * FROM onions UNION ALL SELECT * FROM notonions ORDER BY guess_wrong DESC`;
+
+        // ${play.type} ${play.sort}
+
+        pool.query(text, (err, result) => {
+            callback(err, result);
+        })
+    }
+
+    const fakeArticles = (play, callback) => {
+        let text = `SELECT * FROM onions ORDER BY guess_wrong DESC`;
+
+        pool.query(text, (err, result) => {
+            callback(err, result);
+        })
+    }
+
+    const realArticles = (play, callback) => {
+        let text = `SELECT * FROM notonions ORDER BY guess_wrong DESC`;
+
+        pool.query(text, (err, result) => {
+            callback(err, result);
+        })
+    }
+
+    const insertReal = (play, callback) => {
+        let text = `INSERT INTO notonions (headline, image_url, article_url, reddit_url, guess_right, guess_wrong, type) SELECT '${play.headline}', '${play.image_url}', '${play.article_url}', '${play.reddit_url}', '${play.guess_right}', '${play.guess_wrong}', '${play.type}' WHERE NOT EXISTS ( SELECT 1 FROM notonions WHERE headline = '${headline}'`;
+
+        pool.query(text, values, (err, result) => {
+            callback(err, result);
+        })
+    }
+
+    const insertFake = (play, callback) => {
+        let text = `INSERT INTO onions (headline, image_url, article_url, reddit_url, guess_right, guess_wrong, type) SELECT '${play.headline}', '${play.image_url}', '${play.article_url}', '${play.reddit_url}', '${play.guess_right}', '${play.guess_wrong}', '${play.type}' WHERE NOT EXISTS ( SELECT 1 FROM onions WHERE headline = '${headline}'`;
+
+        pool.query(text, (err, result) => {
+            callback(err, result);
+        })
+    }
+
     return {
         onionById,
         notOnionById,
@@ -76,6 +118,11 @@ module.exports = (pool) => {
         plusNotOnion,
         minusNotOnion,
         getAllOnions,
-        getAllNotOnions
+        getAllNotOnions,
+        allArticles,
+        fakeArticles,
+        realArticles,
+        insertReal,
+        insertFake
     }
 }

@@ -205,23 +205,37 @@ function clearAll() {
 
 function colorizeGreen1() {
     document.getElementById('article1').style.background = 'rgb(125, 244, 66)';
+    document.getElementById('header1').style.display = 'block';
+    document.getElementById('header1').textContent = 'Fake!';
+    document.getElementById('header1').style.background = '#FF4136';
 }
 
 function colorizeGreen2() {
     document.getElementById('article2').style.background = 'rgb(125, 244, 66)';
+    document.getElementById('header2').style.display = 'block';
+    document.getElementById('header2').textContent = 'Fake!';
+    document.getElementById('header2').style.background = '#FF4136';
 }
 
 function colorizeRed1() {
     document.getElementById('article1').style.background = 'rgb(188, 62, 62)';
+    document.getElementById('header1').style.display = 'block';
+    document.getElementById('header1').textContent = 'Real!';
+    document.getElementById('header1').style.background = '#3D9970';
 }
 
 function colorizeRed2() {
     document.getElementById('article2').style.background = 'rgb(188, 62, 62)';
+    document.getElementById('header2').style.display = 'block';
+    document.getElementById('header2').textContent = 'Real!';
+    document.getElementById('header2').style.background = '#3D9970';
 }
 
 function deColorize() {
     document.getElementById('article2').style.background = "white";
     document.getElementById('article1').style.background = "white";
+    document.getElementById('header1').style.display = 'none';
+    document.getElementById('header2').style.display = 'none';
 }
 
 // function plusOne() {
@@ -260,6 +274,8 @@ function plus() {
 
     stopHover();
 
+    addGreen();
+
 }
 
 // function minusOne() {
@@ -293,6 +309,8 @@ function minus() {
     showScores();
 
     stopHover();
+
+    addRed();
 
 }
 
@@ -329,6 +347,8 @@ function putScores2(correct, wrong) {
 }
 
 function setLinks() {
+    document.getElementById('article1').style.cursor = 'default';
+    document.getElementById('article2').style.cursor = 'default';
 
     document.getElementById('notify').style.display = 'table';
 
@@ -345,6 +365,8 @@ function setLinks() {
 
 function hideLinks() {
     document.getElementById('notify').style.display = 'none';
+    document.getElementById('article1').style.cursor = 'pointer';
+    document.getElementById('article2').style.cursor = 'pointer';
 }
 
 function gotItRight() {
@@ -380,6 +402,20 @@ function removeShrink() {
     document.getElementById('hover1').classList.remove('shrink');
     document.getElementById('hover2').classList.remove('shrink');
 }
+
+function addGreen() {
+    let num = parseInt(document.getElementById('correct').textContent);
+    let num2 = num + 1;
+    document.getElementById('correct').textContent = num2;
+}
+
+function addRed() {
+    let num = parseInt(document.getElementById('wrong').textContent);
+    let num2 = num + 1;
+    document.getElementById('wrong').textContent = num2;
+}
+
+
 
 
 

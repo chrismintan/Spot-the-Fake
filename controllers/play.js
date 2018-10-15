@@ -83,6 +83,66 @@ module.exports = (db) => {
         })
     }
 
+    const allArticles = (req, res) => {
+        db.play.allArticles(req.query, (err, result) => {
+            if ( err ) {
+                res.sendStatus(500);
+            } else {
+                res.render('play/allArticles', { cookies: req.cookies, articles: result.rows })
+            }
+        })
+    }
+
+    const fakeArticles = (req, res) => {
+        db.play.fakeArticles(req.query, (err, result) => {
+            if ( err ) {
+                res.sendStatus(500);
+            } else {
+                res.json(result);
+            }
+        })
+    }
+
+    const realArticles = (req, res) => {
+        db.play.realArticles(req.query, (err, result) => {
+            if ( err ) {
+                res.sendStatus(500);
+            } else {
+                res.json(result);
+            }
+        })
+    }
+
+    const topArticles = (req, res) => {
+        db.play.allArticles(req.query, (err, result) => {
+            if ( err ) {
+                res.sendStatus(500);
+            } else {
+                res.json(result);
+            }
+        })
+    }
+
+    const insertReal = (req, res) => {
+        db.play.insertReal(req.query, (err, result) => {
+            if ( err ) {
+                res.sendStatus(500);
+            } else {
+                res.send('');
+            }
+        })
+    }
+
+    const insertReal = (req, res) => {
+        db.play.insertReal(req.query, (err, result) => {
+            if ( err ) {
+                res.sendStatus(500);
+            } else {
+                res.send('');
+            }
+        })
+    }
+
     return {
         index,
         onion,
@@ -90,6 +150,10 @@ module.exports = (db) => {
         correct,
         wrong,
         allOnions,
-        allNotOnions
+        allNotOnions,
+        allArticles,
+        fakeArticles,
+        realArticles,
+        topArticles
     }
 }

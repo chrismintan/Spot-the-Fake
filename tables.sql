@@ -17,7 +17,8 @@ CREATE TABLE IF NOT EXISTS onions (
 	article_url TEXT,
 	reddit_url TEXT,
 	guess_right INTEGER,
-	guess_wrong INTEGER
+	guess_wrong INTEGER,
+	type TEXT
 );
 
 CREATE TABLE IF NOT EXISTS notonions (
@@ -27,7 +28,8 @@ CREATE TABLE IF NOT EXISTS notonions (
 	article_url TEXT,
 	reddit_url TEXT,
 	guess_right INTEGER,
-	guess_wrong INTEGER
+	guess_wrong INTEGER,
+	type TEXT
 );
 
 
