@@ -11,7 +11,7 @@ On clicking start, two articles would be appended on screen. The goal is to spot
 ### Demo
 You can see how the game works below:
 
-![Demo Gif](https://github.com/chrismintan/Spot-the-Fake/blob/master/public/demo.gif)
+![Demo Gif](https://github.com/chrismintan/Spot-the-Fake/blob/master/public/resized-demo.gif)
 
 [Link to Game](https://spot-the-fake.herokuapp.com/) 
 
@@ -22,7 +22,32 @@ You can see how the game works below:
 * [React](https://reactjs.org/) - Templating engine
 * [Postgresql](https://www.postgresql.org/) - Object-relational database system
 
+### How It Works
+Articles are taken via the Reddit API. A random satire article is taken from the subreddit r/TheOnion which only allows posts with articles from Onion News (and its satirical sister sites). Another random article is taken from the subreddit r/nottheonion which mainly focuses on **true stories** that are so ridiculous that they are often thought to be fake news.
 
+If the user playing has an account their score will be recorded and updated accordingly. To be able to keep track of which real articles are more difficult to decipher, score is kept for the articles as well. Everyone is able to view the articles in the database.
+
+![screenshot](https://github.com/chrismintan/Spot-the-Fake/blob/master/public/screenshot.png)
+
+The articles are sorted with the most deceptive ones on top. You may also sort to only see fake / real articles
+
+## Future Development
+Currently the fake articles pulled are purely satire. Fake news in this form is not harmful as it doesn't aim to deceive the reader. Fake news become a problem when it uses it's deceptive nature with malicious intent.  
+
+## Author(s)
+- Christopher Tan
+This is a completely open source project! Feel free to submit pull requests or leave comments if you would like to give any feedback or encounter any bugs.
+
+## Acknowledgements
+This project is purely educational and experimental. It would not have been possible without the following sources:
+
+Images
+- Vintage Concrete by Brandi Leath [here](https://www.toptal.com/designers/subtlepatterns/vintage-concrete/)
+- Pumpkin Thinking Favicon by piter@techflourish.com [here](https://techflourish.com/categories/pumpkin-emoji-clipart.html)
+- Grey Background by background-tiles [here](https://background-tiles.com/overview/grey.php)
+
+Reddit
+- Big thanks to all the Reddit moderators of both subreddits r/TheOnion & r/nottheonion. Without you ensuring the quality and accuracy of articles posted there this app would not work. 
 
 
 
