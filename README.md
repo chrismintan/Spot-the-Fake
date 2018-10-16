@@ -36,6 +36,7 @@ Currently the fake articles pulled are purely satire. Fake news in this form is 
 
 ## Author(s)
 - Christopher Tan
+
 This is a completely open source project! Feel free to submit pull requests or leave comments if you would like to give any feedback or encounter any bugs.
 
 ## Acknowledgements
