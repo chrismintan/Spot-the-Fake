@@ -5,3 +5,26 @@ Fake news itself is nothing new, but with the advent of new technology, the inte
 
 But how difficult is it to tell apart fact from fiction? I invite you to try it out for yourself [here](https://spot-the-fake.herokuapp.com/)! **Spot the Fake** is a simple game in which you are given two articles with their pictures and headlines with the goal being to spot the fake one.
 
+## The Game
+On clicking start, two articles would be appended on screen. The goal is to spot the fake one. After clicking, the article will change color according to whether you managed to spot the fake article. 
+
+### Demo
+You can see how the game works below:
+
+![Demo Gif](https://github.com/chrismintan/Spot-the-Fake/blob/master/public/demo.gif)
+
+[Link to Game](https://spot-the-fake.herokuapp.com/) 
+
+## Application Development Process
+### Built With
+* [NodeJS](http://nodejs.org) - Server-side Javascript
+* [Express](https://expressjs.com/) - Web Framework for Node.js
+* [React](https://reactjs.org/) - Templating engine
+* [Postgresql](https://www.postgresql.org/) - Object-relational database system
+
+
+
+
+
+
+
