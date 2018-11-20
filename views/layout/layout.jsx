@@ -22,7 +22,7 @@ class Login extends React.Component {
 
     if (this.props.cookies.loggedIn) {
       return (
-        <div className="navbar-nav ml-auto">
+        <div className="navbar-nav fixed-top sticky-top ml-auto">
           <form method="POST" action="/users/logout" className="form-inline nav-item nav-link">
               <input type="submit" className="btn btn-link p-0 text-light" value="Logout" />
           </form>
@@ -30,7 +30,7 @@ class Login extends React.Component {
       )
     } else {
       return (
-        <div className="navbar-nav ml-auto">
+        <div className="navbar-nav fixed-top sticky-top ml-auto">
 
           <form method="GET" action="/users/login" className="form-inline nav-item nav-link">
             <input type="submit" className="btn btn-link p-0 text-light" value="Login" />
@@ -95,7 +95,6 @@ class Layout extends React.Component {
               <div className="navbar-nav mr-auto">
                         <a className='nav-item nav-link' href='/play'>Play!</a>
                         <a className='nav-item nav-link' href='/articles'>Top&nbsp;Stories</a>
-                        <a className="nav-item nav-link" href="/users/">Users</a>
 
                         <ProfileLink cookies={this.props.cookies} />
                         <CurrentScore cookies={this.props.cookies} />
@@ -118,16 +117,15 @@ class Layout extends React.Component {
 
                     <div className='centered col-sm-12' id='social1'>
 
-                        <div id='copyright'><strong id='copy'>©</strong>hristopher&nbsp;Tan&nbsp;</div>
+                        <div id='copyright'><strong id='copy'>©</strong>hristopher&nbsp;Tan&nbsp;&nbsp;&nbsp;</div>
 
 
                         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
                         <div id='social'>
-                            <a href="#" className="fa fa-facebook"></a>&nbsp;
-                            <a href="#" className="fa fa-github"></a>&nbsp;
-                            <a href="#" className="fa fa-linkedin"></a>&nbsp;
-                            <a href="#" className="fa fa-skype"></a>&nbsp;
+                            <a href="mailto:chrismintan91@gmail.com?Subject=Hello%20there!"><img src="/email.png" /></a>&nbsp;
+                            <a target="_blank" href="https://github.com/chrismintan"><img src="/github.png" /></a>&nbsp;
+                            <a target="_blank" href="https://www.linkedin.com/in/chrismintan/"><img src="/linkedin.png" /></a>&nbsp;
                         </div>
 
 
